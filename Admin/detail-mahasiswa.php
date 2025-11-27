@@ -1,0 +1,107 @@
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <!--begin::Col-->
+              <div class="col-sm-6"><h3 class="mb-0">Detail Mahasiswa</h3></div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Detail mahasiswa</li>
+                </ol>
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <!--begin::Col-->
+              <div class="col-12">
+                <!--begin::Card-->
+                <div class="card">
+                  <!--begin::Card Header-->
+                  <div class="card-header">
+                    <!--end::Card Title-->
+                    <!--begin::Card Toolbar-->
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                    <!--end::Card Toolbar-->
+                  </div>
+                  <!--end::Card Header-->
+                  <!--begin::Card Body-->
+                  <div class="card-body">
+                    <!--begin::Row-->
+                    <div class="row">
+                      <!--begin::Col-->
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <?php
+                        $idx= $_GET['id'];
+                        require_once "../config.php";
+                        $sql = "select * from mahasiswa where id='$idx'";
+                        $data=$db->query($sql);
+
+                        foreach($data as $d) {
+                          if($d['prodi']==1) {
+                          $prodi="Informatika";
+                          } elseif ($d['prodi']==2) {
+                            $prodi="Arsitektur"; 
+                          } elseif ($d['prodi']==3){
+                            $prodi="Ilmu lingkungan";
+                          } 
+
+                          else {
+                            $prodi="Prodi Tidak Diketahui";
+                          }
+                            echo "<table border=1 class='table table-striped table-hover'>
+                              <tr><td>NIM</td><td>$d[NIM]</td></tr>
+                              <tr><td>nama</td><td>$d[nama]</td></tr>
+                              <tr><td>Jenis kelamin</td><td>$d[gender]</td></tr>
+                              <tr><td>prodi</td><td>$prodi</td></tr>
+                              <tr><td>alamat</td><td>$d[alamat]</td></tr>
+                            </table>";
+                        }
+                      ?>
+                     <a href="./?p=mahasiswa">
+                       <input type="submit" class="btn btn-primary" value="kembali">
+                     </a>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-md-6"><div id="sidebar-color-code" class="w-100"></div></div>
+                      <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                  </div>
+                  <!--end::Card Body-->
+                  <!--begin::Card Footer-->
+
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Card-->
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
