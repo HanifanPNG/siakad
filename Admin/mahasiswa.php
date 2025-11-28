@@ -29,8 +29,7 @@ if (isset($_POST["tombol-cari"])) {
 $data = $db->query($sql);
 $jumlah_data = $data->num_rows;
 
-// Tambahkan validasi pesan
-if (($_POST["tombol-cari"])) {
+if (($_POST["tombol-cari"]) && !empty($keyword)) {
   if ($jumlah_data > 0) {
     $pesan = "<p style='color:green;margin-top:8px;'>✅ Data dengan kata kunci <b>$keyword</b> ditemukan di kategori <b>$category</b></p>";
   } else {
@@ -62,6 +61,7 @@ if (($_POST["tombol-cari"])) {
         <div class="col-12">
           <div class="card">
             <div class="card-header">
+               Data Mahasiswa UIN Saizu
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
                   <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -79,8 +79,8 @@ if (($_POST["tombol-cari"])) {
                         <tr>
                           <td>
                             <a href="./?p=tambahMhs">
-                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer">
-                                + Tambah
+                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer px-1 py-2">
+                                 Tambah Mahasiswa
                               </div>
                             </a>
                           </td>
@@ -94,11 +94,10 @@ if (($_POST["tombol-cari"])) {
                               <option value="prodi" <?php if ($category == "prodi") echo "selected" ?>>PRODI</option>
                             </select>
                           </td>
-                          <td><input type="submit" value="cari" name="tombol-cari"></td>
+                          <td><input type="submit" value="cari" name="tombol-cari" class="mx-2 py-1 px-2 rounded-1"></td>
                         </tr>
                       </table>
 
-                      <!-- pesan hasil pencarian -->
                       <?= $pesan ?>
 
                       <table class="table table-striped table-hover">
