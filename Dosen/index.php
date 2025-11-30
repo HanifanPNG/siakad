@@ -3,6 +3,7 @@ session_start();
 if($_SESSION['isLogin']==false or $_SESSION['level']!="dosen"){
   header("location:../logout.php");
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -349,7 +350,7 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="dosen"){
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
-              <div class="col-sm-6"><h3 class="mb-0">Dashboard Dosen</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Selamat Datang <?= $_SESSION['user']; ?></h3></div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">

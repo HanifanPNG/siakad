@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['isLogin']==false or $_SESSION['level']!="mhs"){
+if($_SESSION['isLogin']==false or $_SESSION['level']!="Pegawai"){
   header("location:../logout.php");
 }
 ?>
@@ -355,7 +355,7 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="mhs"){
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Dashboard Mahasiswa</li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard pegawai</li>
                 </ol>
               </div>
               <!--end::Col-->

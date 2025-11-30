@@ -3,6 +3,8 @@ $title = "SIAKAD";
 session_start();
 error_reporting(0);
 ?>
+
+
 <!doctype html>
 <html lang="en">
   <!--begin::Head-->
@@ -88,6 +90,7 @@ error_reporting(0);
                     $_SESSION['isLogin']=true;
                     $_SESSION['level']=$level;
                     $_SESSION['user']=$tuser;
+
                     echo "<div class='alert alert-success alert-dismissible'>Berhasil</div>";
                     if($level=="admin"){
                         header("location:Admin/");
@@ -95,6 +98,8 @@ error_reporting(0);
                         header("location:dosen/");
                     } elseif($level == "mhs"){
                         header("location:mahasiswa/");
+                     } elseif($level == "Pegawai"){
+                        header("location:Pegawai/");
                      }
                 } else{
                     echo "<div class='alert alert-danger alert-dismissible'>User dan Password Salah</div>";
