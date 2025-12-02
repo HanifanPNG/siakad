@@ -38,6 +38,18 @@ switch ($p) {
     case 'pegawai' :
         require_once "pegawai.php";
         break;    
+    case 'tambah_pegawai' :
+        require_once "tambah_pegawai.php";
+        break;       
+    case 'detail_pegawai' :
+        require_once "detail_pegawai.php";
+        break;       
+    case 'edit_pegawai' :
+        require_once "edit_pegawai.php";
+        break;       
+    case 'hapus_pegawai' :
+        require_once "hapus_pegawai.php";
+        break;       
 
     case 'gantiPW' :
         require_once "gantiPW.php";

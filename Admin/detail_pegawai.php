@@ -6,13 +6,13 @@
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
-              <div class="col-sm-6"><h3 class="mb-0">Detail Dosen</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Detail Pegawai</h3></div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Detail Dosen</li>
+                  <li class="breadcrumb-item active" aria-current="page">Detail Pegawai</li>
                 </ol>
               </div>
               <!--end::Col-->
@@ -55,30 +55,19 @@
                       <?php
                         $idx= $_GET['id'];
                         require_once "../config.php";
-                        $sql = "select * from dosen where id='$idx'";
+                        $sql = "select * from pegawai where id='$idx'";
                         $data=$db->query($sql);
 
                         foreach($data as $d) {
-                          if($d['prodi']==1) {
-                          $prodi="INF";
-                          } elseif ($d['prodi']==2) {
-                            $prodi="ARS"; 
-                          } elseif ($d['prodi']==3){
-                            $prodi="ILK";
-                          } 
-
-                          else {
-                            $prodi="Prodi Tidak Diketahui";
-                          }
                             echo "<table border=1 class='table table-striped table-hover'>
-                              <tr><td>NIDN</td><td>$d[NIDN]</td></tr>
-                              <tr><td>nama</td><td>$d[nama_dosen]</td></tr>
+                              <tr><td>NIM</td><td>$d[NIP]</td></tr>
+                              <tr><td>nama</td><td>$d[nama_pegawai]</td></tr>
                               <tr><td>Jenis kelamin</td><td>$d[gender]</td></tr>
-                              <tr><td>prodi</td><td>$prodi</td></tr>
+                              <tr><td>alamat</td><td>$d[alamat]</td></tr>
                             </table>";
                         }
                       ?>
-                     <a href="./?p=dosen">
+                     <a href="./?p=pegawai">
                        <input type="submit" class="btn btn-primary" value="kembali">
                      </a>
                       <!--end::Col-->

@@ -54,14 +54,14 @@
                       <!--begin::Col-->
                      <?php
                       if($_POST['simpan']){
-                        $NIP=$_POST['NIP'];
+                        $NIDN=$_POST['NIDN'];
                         $nama=$_POST['nama_dosen'];
                         $jk=$_POST['jk'];
                         $prodi=$_POST['prodi'];
 
                         require_once "../config.php";
                         $waktu=date("Y-m-d H:i:s");
-                        $sql="insert into dosen set NIP='$NIP', nama_dosen='$nama', gender='$jk', prodi='$prodi', waktu='$waktu'";
+                        $sql="insert into dosen set NIDN='$NIDN', nama_dosen='$nama', gender='$jk', prodi='$prodi', waktu='$waktu'";
                         $a=$db->query($sql);
                         if($a){
                           echo "<div class='alert alert-success'>Data Berhasil Disimpan✅ <br>
@@ -72,7 +72,7 @@
 
                       <form action="#" method="post">
                         <table>
-                          <tr><td>NIP</td><td><input type="number" name="NIP" class="form-control" value="<?=$NIP?>"></td></tr>
+                          <tr><td>NIDN</td><td><input type="number" name="NIDN" class="form-control" value="<?=$NIDN?>"></td></tr>
                           <tr><td>Nama Dosen</td><td><input type="text" name="nama_dosen" class="form-control" value="<?=$nama?>"></td></tr>
                           <tr><td>Jenis Kelamin</td><td>
                             <input type="radio" name="jk" value="L" id="jkL"<?php if($jk=="L") echo "checked";?>>

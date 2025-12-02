@@ -6,13 +6,13 @@
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
-              <div class="col-sm-6"><h3 class="mb-0">Detail Dosen</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Tambah Pegawai</h3></div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Detail Dosen</li>
+                  <li class="breadcrumb-item active" aria-current="page">Tambah Pegawai</li>
                 </ol>
               </div>
               <!--end::Col-->
@@ -52,35 +52,42 @@
                       <!--begin::Col-->
                       <!--end::Col-->
                       <!--begin::Col-->
-                      <?php
-                        $idx= $_GET['id'];
+                     <?php
+                      if($_POST['simpan']){
+                        $NIP=$_POST['NIP'];
+                        $nama_pegawai=$_POST['nama_pegawai'];
+                        $jk=$_POST['jk'];
+                        $alamat=$_POST['alamat'];
+
                         require_once "../config.php";
-                        $sql = "select * from dosen where id='$idx'";
-                        $data=$db->query($sql);
-
-                        foreach($data as $d) {
-                          if($d['prodi']==1) {
-                          $prodi="INF";
-                          } elseif ($d['prodi']==2) {
-                            $prodi="ARS"; 
-                          } elseif ($d['prodi']==3){
-                            $prodi="ILK";
-                          } 
-
-                          else {
-                            $prodi="Prodi Tidak Diketahui";
-                          }
-                            echo "<table border=1 class='table table-striped table-hover'>
-                              <tr><td>NIDN</td><td>$d[NIDN]</td></tr>
-                              <tr><td>nama</td><td>$d[nama_dosen]</td></tr>
-                              <tr><td>Jenis kelamin</td><td>$d[gender]</td></tr>
-                              <tr><td>prodi</td><td>$prodi</td></tr>
-                            </table>";
+                        $waktu=date("Y-m-d H:i:s");
+                        $sql="insert into pegawai set NIP='$NIP', nama_pegawai='$nama_pegawai', gender='$jk', alamat='$alamat', waktu='$waktu'";
+                        $a=$db->query($sql);
+                        if($a){
+                          echo "<div class='alert alert-success'>Data Berhasil Disimpan✅ <br>
+                          <a href='./?p=pegawai'>Lihat Data</a></div>";
                         }
+                      }
                       ?>
-                     <a href="./?p=dosen">
-                       <input type="submit" class="btn btn-primary" value="kembali">
-                     </a>
+
+                      <form action="#" method="post">
+                        <table>
+                          <tr><td>NIP</td><td><input type="number" name="NIP" class="form-control" value="<?=$NIP?>"></td></tr>
+                          <tr><td>Nama Pegawai</td><td><input type="text" name="nama_pegawai" class="form-control" value="<?=$nama_pegawai?>"></td></tr>
+                          <tr><td>Jenis Kelamin</td><td>
+                            <input type="radio" name="jk" value="L" id="jkL"<?php if($jk=="L") echo "checked";?>>
+                            <label for="jkL">Laki-laki</label>
+                            <input type="radio" name="jk" value="P" id="jkP"<?php if($jk=="P") echo "checked";?>>
+                            <label for="jkP">Perempuan</label>    
+                          </td></tr>
+                          <tr><td>alamat</td><td>
+                            <input type="text" name="alamat" class="form-control" value="<?= $alamat?>">
+                          </td></tr>
+                          <tr><td>
+                          </td><td><button type="submit" name="simpan" value="Simpan" class="btn btn-primary mt-2">Simpan</button></td></tr>
+                        </table>
+                      </form>
+
                       <!--end::Col-->
                       <!--begin::Col-->
                       <div class="col-md-6"><div id="sidebar-color-code" class="w-100"></div></div>

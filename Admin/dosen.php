@@ -111,7 +111,7 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
 
                           <td>
                             <select name="category" class="form-control">
-                              <option value="NIP" <?php if ($category == "NIP") echo "selected" ?>>NIP</option>
+                              <option value="NIDN" <?php if ($category == "NIDN") echo "selected" ?>>NIDN</option>
                               <option value="nama_dosen" <?php if ($category == "nama_dosen") echo "selected" ?>>Nama</option>
                               <option value="gender" <?php if ($category == "gender") echo "selected" ?>>Jenis Kelamin</option>
                               <option value="prodi" <?php if ($category == "prodi") echo "selected" ?>>Prodi</option>
@@ -129,7 +129,7 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>NIP</th>
+                      <th>NIDN</th>
                       <th>Nama Dosen</th>
                       <th>Jenis Kelamin</th>
                       <th>Prodi</th>
@@ -153,7 +153,7 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
                         echo "
                         <tr>
                           <td>$nomor</td>
-                          <td>$d[NIP]</td>
+                          <td>$d[NIDN]</td>
                           <td>$d[nama_dosen]</td>
                           <td>$d[gender]</td>
                           <td>$prodi</td>

@@ -7,14 +7,14 @@
             <div class="row">
               <!--begin::Col-->
               <div class="col-sm-6">
-                <h3 class="mb-0">Edit Dosen</h3>
+                <h3 class="mb-0">Edit Pegawai</h3>
               </div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Edit Dosen</li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit Pegawai</li>
                 </ol>
               </div>
               <!--end::Col-->
@@ -59,14 +59,9 @@
                           $idx = $_GET['id'];
                           require_once "../config.php";
 
-                          $sql = "SELECT * FROM dosen WHERE id='$idx'";
+                          $sql = "SELECT * FROM pegawai WHERE id='$idx'";
                           $data = $db->query($sql);
                           foreach ($data as $d) {
-                            switch ($d['prodi']) {
-                              case '1': $prodi="Informatika"; $inf="selected"; break;
-                              case '2': $prodi="Arsitektur"; $ars="selected"; break;
-                              case '3': $prodi="Ilmu Lingkungan"; $ilk="selected"; break;
-                            }
                             if ($d['gender'] == 'L') {
                               $l = "checked";
                               $p = "";
@@ -78,15 +73,15 @@
 
                           // Jika tombol simpan ditekan
                           if ($_POST['simpanEdit']) {
-                            $NIDN = $_POST['NIDN'];
-                            $nama = $_POST['nama_dosen'];
+                            $NIP = $_POST['NIP'];
+                            $nama = $_POST['nama_pegawai'];
                             $jk = $_POST['jk'];
-                            $prodi = $_POST['prodi'];
+                            $alamat = $_POST['alamat'];
 
-                            $sql = "UPDATE dosen SET NIDN='$NIDN', nama_dosen='$nama', gender='$jk', prodi='$prodi' WHERE id='$idx'";
+                            $sql = "UPDATE pegawai SET NIP='$NIP', nama_pegawai='$nama', gender='$jk', alamat='$alamat' WHERE id='$idx'";
                             $hasil = $db->query($sql);
                             if ($hasil) {
-                              echo "<script>window.location.href='./?p=dosen';</script>";
+                              echo "<script>window.location.href='./?p=pegawai';</script>";
                             }
                           }
                           ?>
@@ -94,12 +89,12 @@
                           <form action="#" method="post">
                             <table class='table table-striped table-hover'>
                               <tr>
-                                <td>NIM</td>
-                                <td><input type='number' name='NIDN' value='<?= $d['NIDN'] ?>'></td>
+                                <td>NIP</td>
+                                <td><input type='number' name='NIP' value='<?= $d['NIP'] ?>'></td>
                               </tr>
                               <tr>
                                 <td>Nama</td>
-                                <td><input type='text' name='nama_dosen' value='<?= $d['nama_dosen'] ?>'></td>
+                                <td><input type='text' name='nama_pegawai' value='<?= $d['nama_pegawai'] ?>'></td>
                               </tr>
                               <tr>
                                 <td>Jenis Kelamin</td>
@@ -109,14 +104,8 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td>Prodi</td>
-                                <td>
-                                  <select name='prodi'>
-                                    <option value='1' <?= $inf ?>>Informatika</option>
-                                    <option value='2' <?= $ars ?>>Arsitektur</option>
-                                    <option value='3' <?= $ilk ?>>Ilmu Lingkungan</option>
-                                  </select>
-                                </td>
+                                <td>Alamat</td>
+                                <td><textarea name='alamat'><?= $d['alamat'] ?></textarea></td>
                               </tr>
                               <tr>
                                 <td></td>
@@ -124,7 +113,7 @@
                               </tr>
                             </table>
                           </form>
-                          <a href="./?p=dosen">
+                          <a href="./?p=pegawai">
                             <input type="submit" class="btn btn-primary" value="kembali">
                           </a>
                         </form>
