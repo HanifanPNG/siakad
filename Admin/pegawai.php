@@ -24,6 +24,16 @@ if (($_POST["tombol-cari"]) && !empty($keyword)) {
 }
 ?>
 
+<style>
+          .hover-scale {
+          transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+          transform: scale(1.03);
+        }
+</style>
+
 <main class="app-main">
   <div class="app-content-header">
     <div class="container-fluid">
@@ -65,7 +75,8 @@ if (($_POST["tombol-cari"]) && !empty($keyword)) {
                         <tr>
                           <td>
                             <a href="./?p=tambah_pegawai">
-                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer px-1 py-2">
+                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer px-1 py-2 hover-scale">
+                                  <i class="bi bi-person-plus"></i>
                                  Tambah Pegawai
                               </div>
                             </a>
@@ -79,7 +90,7 @@ if (($_POST["tombol-cari"]) && !empty($keyword)) {
                               <option value="gender" <?php if ($category == "gender") echo "selected" ?>>JENIS KELAMIN</option>
                             </select>
                           </td>
-                          <td><input type="submit" value="cari" name="tombol-cari" class="mx-2 py-1 px-2 rounded-1"></td>
+                          <td><input type="submit" value="cari" name="tombol-cari" class="mx-2 py-1 px-2 rounded-1 bg-primary hover-scale"></td>
                         </tr>
                       </table>
 
@@ -110,9 +121,15 @@ if (($_POST["tombol-cari"]) && !empty($keyword)) {
                                       <td>$d[gender]</td>
                                       <td>$d[alamat]</td>
                                       <td>
-                                        <a href='./?p=detail_pegawai&id=$d[id]' class='btn btn-xs btn-info'>Detail</a>
-                                        <a href='./?p=edit_pegawai&id=$d[id]' class='btn btn-xs btn-warning'>Edit</a>
-                                        <a href='./?p=hapus_pegawai&id=$d[id]' class='btn btn-xs btn-danger' onclick=\"return confirm('apakah data akan dihapus?')\">Hapus</a>
+                                        <a href='./?p=detail_pegawai&id=$d[id]' class='btn btn-xs btn-info'>
+                                          <i class='bi bi-eye'></i>
+                                        </a>
+                                        <a href='./?p=edit_pegawai&id=$d[id]' class='btn btn-xs btn-warning'>
+                                          <i class='bi bi-pencil'></i>
+                                        </a>
+                                        <a href='./?p=hapus_pegawai&id=$d[id]' class='btn btn-xs btn-danger' onclick=\"return confirm('apakah data akan dihapus?')\">
+                                          <i class='bi bi-trash3'></i>
+                                        </a>
                                       </td>
                                     </tr>";
                             }

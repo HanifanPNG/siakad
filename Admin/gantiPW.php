@@ -91,4 +91,4 @@
           <!--end::Container-->
         </div>
         <!--end::App Content-->
-      </main>2
+      </main>

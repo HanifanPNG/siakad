@@ -63,6 +63,11 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="admin"){
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../assets/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <style>
+       .bg-biru{
+          background: linear-gradient(to right, #09427bff, #0b62ccff);
+        }
+    </style>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -80,18 +85,12 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="admin"){
                 <i class="bi bi-list"></i>
               </a>
             </li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item d-none d-md-block"><a href="./?p=dashboard" class="nav-link">Home</a></li>
           </ul>
           <!--end::Start Navbar Links-->
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
             <!--end::Navbar Search-->
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
@@ -222,7 +221,7 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="admin"){
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img
-                  src="../assets/img/user2-160x160.jpg"
+                  src="../assets/img/Hanifan2.jpg"
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
@@ -230,9 +229,9 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="admin"){
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::User Image-->
-                <li class="user-header text-bg-primary">
+                <li class="user-header bg-biru">
                   <img
-                    src="../assets/img/user2-160x160.jpg"
+                    src="../assets/img/Hanifan2.jpg"
                     class="rounded-circle shadow"
                     alt="User Image"
                   />
@@ -246,7 +245,7 @@ if($_SESSION['isLogin']==false or $_SESSION['level']!="admin"){
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="./?p=gantiPW" class="btn btn-default btn-flat">Ganti Password</a>
-                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Sign out</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>

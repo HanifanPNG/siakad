@@ -84,9 +84,9 @@ $total_pegawai = $db->query("select count(*) as jumlah_pegawai from pegawai")->f
                             <div>
                               <h4 class="fw-bold mb-1">Jumlah Data Dosen</h4>
                             </div>
-                            <i class="bi bi-clipboard-data fs-1 opacity-75"></i>
+                            <i class="bi bi-person-badge-fill fs-1 opacity-75"></i>
                           </div>
-                          <div class="justify-content-center align-items-center d-flex">
+                          <div class="justify-content-start align-items-center d-flex">
                             <h2 class="fw-bold mt-3 mb-0 "><?= $total_dosen ?></h2>
                           </div>
                         </div>
@@ -99,7 +99,7 @@ $total_pegawai = $db->query("select count(*) as jumlah_pegawai from pegawai")->f
                             <div>
                               <h4 class="fw-bold mb-1">Jumlah Data Mahasiswa</h4>
                             </div>
-                            <i class="bi bi-clipboard-data fs-1 opacity-75"></i>
+                            <i class="bi bi-mortarboard-fill fs-1 opacity-75"></i>
                           </div>
                           <div class="justify-content-center align-items-center d-flex">
                             <h2 class="fw-bold mt-3 mb-0 "><?= $total_mhs ?></h2>
@@ -113,7 +113,7 @@ $total_pegawai = $db->query("select count(*) as jumlah_pegawai from pegawai")->f
                             <div>
                               <h4 class="fw-bold mb-1">Jumlah Data Pegawai</h4>
                             </div>
-                            <i class="bi bi-clipboard-data fs-1 opacity-75"></i>
+                            <i class="bi bi-person-gear fs-1 opacity-75"></i>
                           </div>
                           <div class="justify-content-center align-items-center d-flex">
                             <h2 class="fw-bold mt-3 mb-0 "><?= $total_pegawai ?></h2>

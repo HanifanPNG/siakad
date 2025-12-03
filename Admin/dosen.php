@@ -38,6 +38,16 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
 }
 ?>
 
+<style>
+          .hover-scale {
+          transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+          transform: scale(1.03);
+        }
+</style>
+
 
 <main class="app-main">
   <!--begin::App Content Header-->
@@ -100,7 +110,8 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
                         <tr>
                           <td>
                             <a href="./?p=tambahDosen">
-                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer px-1 py-2">
+                              <div class="bg-primary d-inline-block p-1 rounded-2 text-white cursor-pointer px-1 py-2 hover-scale">
+                                <i class="bi bi-person-plus"></i>
                                 Tambah Dosen
                               </div>
                             </a>
@@ -119,7 +130,7 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
                           </td>
 
                           <td><input type="submit" value="cari" name="tombol-cari"
-                              class="mx-2 py-1 px-2 rounded-1"></td>
+                              class="mx-2 py-1 px-2 rounded-1 bg-primary hover-scale"></td>
                         </tr>
                       </table>
 
@@ -158,10 +169,16 @@ if (isset($_POST["tombol-cari"]) && !empty($keyword)) {
                           <td>$d[gender]</td>
                           <td>$prodi</td>
                           <td>
-                            <a href='./?p=detailDosen&id=$d[id]' class='btn btn-xs btn-info'>Detail</a>
-                            <a href='./?p=editDosen&id=$d[id]' class='btn btn-xs btn-warning'>Edit</a>
+                            <a href='./?p=detailDosen&id=$d[id]' class='btn btn-xs btn-info'>
+                              <i class='bi bi-eye'></i>
+                            </a>
+                            <a href='./?p=editDosen&id=$d[id]' class='btn btn-xs btn-warning'>
+                              <i class='bi bi-pencil'></i>
+                            </a>
                             <a href='./?p=hapusDosen&id=$d[id]' class='btn btn-xs btn-danger'
-                               onclick=\"return confirm('Hapus data ini?')\">Hapus</a>
+                               onclick=\"return confirm('Hapus data ini?')\">
+                                <i class='bi bi-trash3'></i>
+                               </a>
                           </td>
                         </tr>";
                       }
